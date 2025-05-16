@@ -131,6 +131,7 @@ static int mcux_cop_install_timeout(const struct device *dev, const struct wdt_t
 		data->cop_config.timeoutCycles = kCOP_2Power10CyclesOr2Power18Cycles;
 		break;
 	}
+	// TODO: error if > 8192 and FSL_FEATURE_COP_HAS_LONGTIME_MODE not defined
 
 #if defined(FSL_FEATURE_COP_HAS_LONGTIME_MODE) && FSL_FEATURE_COP_HAS_LONGTIME_MODE
 	data->cop_config.timeoutMode =
