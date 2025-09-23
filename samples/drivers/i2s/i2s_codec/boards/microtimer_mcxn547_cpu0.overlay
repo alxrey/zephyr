@@ -1,0 +1,28 @@
+/ {
+	aliases {
+		i2s-codec-tx = &sai1;
+	};
+};
+
+&sai1 {
+	status = "okay";
+	mclk-output;
+};
+
+&flexcomm8 {
+	status = "okay";
+};
+
+&flexcomm8_lpi2c8 {
+	status = "okay";
+
+	audio_codec: tas5805m@2c {
+		compatible = "ti,tas5805m";
+		status = "okay";
+		reg = <0x2c>;
+		pdn-gpios = <&gpio0 30 GPIO_ACTIVE_LOW>;
+		fault-gpios = <&gpio0 29 GPIO_ACTIVE_LOW>;
+		modulation-scheme = "1SPW";
+		fsw = "768K";
+	};
+};
