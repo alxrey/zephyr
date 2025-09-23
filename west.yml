@@ -23,6 +23,8 @@ manifest:
       url-base: https://github.com/zephyrproject-rtos
     - name: babblesim
       url-base: https://github.com/BabbleSim
+    - name: swiss-timing
+      url-base: https://dev.azure.com/SwissTiming/HwFw/_git
 
   group-filter: [-babblesim, -optional]
 
@@ -30,6 +32,15 @@ manifest:
   # Please add items below based on alphabetical order
   # zephyr-keep-sorted-start re(^\s+\- name:)
   projects:
+    - name: Zephyr_Boards
+      remote: swiss-timing
+      path: boards
+      revision: main
+      clone-depth: 1
+    - name: Zephyr_Module_Audio
+      remote: swiss-timing
+      path: modules/drivers/audio
+      revision: main
     - name: acpica
       revision: 8d24867bc9c9d81c81eeac59391cda59333affd4
       path: modules/lib/acpica
