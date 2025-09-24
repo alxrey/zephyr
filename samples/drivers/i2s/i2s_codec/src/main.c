@@ -118,8 +118,6 @@ int main(void)
 			int i;
 
 			for (i = 0; i < CONFIG_I2S_INIT_BUFFERS; i++) {
-				/* If not using DMIC, play a sine wave 440Hz */
-
 				BUILD_ASSERT(
 					BLOCK_SIZE <= __16kHz16bit_stereo_sine_pcm_len,
 					"BLOCK_SIZE is bigger than test sine wave buffer size."
