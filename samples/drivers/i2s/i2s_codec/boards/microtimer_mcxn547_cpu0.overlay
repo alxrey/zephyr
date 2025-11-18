@@ -6,6 +6,8 @@
 
 &sai1 {
 	status = "okay";
+	nxp,tx-channel = <2>; // mask for channel 1 and 2
+	nxp,rx-sync-mode;
 	mclk-output;
 };
 
@@ -16,13 +18,26 @@
 &flexcomm8_lpi2c8 {
 	status = "okay";
 
-	audio_codec: tas5805m@2c {
-		compatible = "ti,tas5805m";
+	// tas5805m@2c {
+	// 	compatible = "ti,tas5805m";
+	// 	status = "okay";
+	// 	reg = <0x2c>;
+	// 	pdn-gpios = <&gpio0 30 GPIO_ACTIVE_LOW>;
+	// 	fault-gpios = <&gpio0 29 GPIO_ACTIVE_LOW>;
+	// 	modulation-scheme = "BD";
+	// 	fsw = "768kHz";
+	// 	bandwidth = "175kHz";
+	// 	analog-gain = <0x1F>; // max negative gain for tests
+	// };
+
+	audio_codec: tad5212@50 {
+		compatible = "ti,tad5212";
 		status = "okay";
-		reg = <0x2c>;
-		pdn-gpios = <&gpio0 30 GPIO_ACTIVE_LOW>;
-		fault-gpios = <&gpio0 29 GPIO_ACTIVE_LOW>;
-		modulation-scheme = "1SPW";
-		fsw = "768K";
+		reg = <0x50>;
+		output-configuration = <1>;
+		out1p-impedance = <0>;
+		out1m-impedance = <0>;
+		out2p-impedance = <0>;
+		out2m-impedance = <0>;
 	};
 };
