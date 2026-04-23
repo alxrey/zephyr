@@ -1,0 +1,18 @@
+# Session Description Protocol (SDP) library for Zephyr
+#
+# SPDX-License-Identifier: Apache-2.0
+
+config NET_SDP
+	bool "Session Description Protocol (SDP) library"
+	help
+	  Enable SDP library compliant with RFC8866 Session Description Protocol.
+
+if NET_SDP
+
+module = NET_SDP
+module-dep = NET_LOG
+module-str = Log level for SDP library
+module-help = Enables SDP library debug messages
+source "subsys/net/Kconfig.template.log_config.net"
+
+endif # NET_SDP
